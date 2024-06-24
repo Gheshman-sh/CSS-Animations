@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222;
+    overflow-x: hidden;
+    font-family: "poppins", sans-serif;
+}
+
+.container {
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.card {
+    overflow: hidden;
+    border-radius: 20px;
+    height: 30rem;
+    width: 8rem;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 20px #00000077;
+    transition: width .35s ease-in;
+}
+
+.card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    transition: background-position .35s ease-in-out;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background: #00000099;
+    opacity: 1;
+    transition: opacity .35s ease-in;
+}
+
+.card:nth-child(1)::before {
+    background: url(./images/superman.png) center/100px no-repeat;
+}
+
+.card:nth-child(2)::before {
+    background: url(./images/homelander.png) center/180px no-repeat;
+}
+
+.card:nth-child(3)::before {
+    background: url(./images/omniman.png) center/150px no-repeat;
+}
+
+.card:hover {
+    width: 15rem;
+}
+
+.card:hover::before {
+    background-position: 50% 150%;
+}
+
+.card:hover::after  {
+    opacity: 0;
+}
